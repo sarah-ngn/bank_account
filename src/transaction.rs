@@ -1,6 +1,15 @@
-use chrono::{TimeZone,DateTime,Utc};
+use chrono::{DateTime, Local};
 
 pub struct Transaction {
-    date: DateTime<Utc>,
-    amount: f32
+    pub date: DateTime<Local>,
+    pub amount: f32
+}
+
+impl Clone for Transaction {
+    fn clone(&self) -> Transaction {
+        Transaction {
+            date: self.date,
+            amount: self.amount
+        }
+    }
 }
